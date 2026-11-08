@@ -44,23 +44,24 @@ button{font:inherit;letter-spacing:.28em;background:#0006;color:var(--fg);border
 .tb,.ts{position:fixed;z-index:4;display:flex;align-items:center;justify-content:center;border:2px solid #7fd1a0aa;background:#000a;color:#e8fff0;border-radius:50%;font-size:12px;letter-spacing:1px;user-select:none;-webkit-user-select:none;touch-action:none}.tb.on,.ts.on{background:#7fd1a0cc;color:#000}
 #t-e{right:24px;bottom:64px;width:88px;height:88px;font-size:26px}#t-run{right:128px;bottom:26px;width:64px;height:64px}#t-cr{right:24px;bottom:168px;width:62px;height:62px;font-size:10px}#t-fl{right:110px;bottom:110px;width:58px;height:58px;font-size:10px}#t-jump{right:206px;bottom:96px;width:64px;height:64px;font-size:11px}#t-roar{right:104px;bottom:184px;width:62px;height:62px;display:none;border-color:#e44}
 .ts{top:12px;left:12px;width:44px;height:44px;border-radius:10px;font-size:16px}#t-fs{left:66px}
+#t-mic{left:120px}#vc{position:fixed;top:64px;left:12px;z-index:5;font-size:12px;letter-spacing:2px;color:#9dffbf;text-shadow:0 0 6px #000;pointer-events:none}
 #rot{position:fixed;inset:0;z-index:9;background:#000;display:none;align-items:center;justify-content:center;font-size:18px;letter-spacing:4px;text-align:center}
 .touch #inv{pointer-events:auto;z-index:4}.touch .sl{width:54px;height:54px;font-size:18px}
 @media(max-height:560px){#menu{overflow:auto;align-items:flex-start}#m-main{padding:14px 0}#tasks{font-size:10px;max-width:36vw;padding:6px 8px;line-height:1.5;top:8px;right:8px}#lbar{padding:6px 10px;gap:6px}#lbar input{width:30vw}#lcode{font-size:15px}.sl{width:50px;height:50px}}
 </style></head><body>
 <canvas id="c"></canvas><canvas id="gr" width="160" height="90"></canvas><div id="vg"></div><div id="rd"></div><div id="fd"></div><div id="dfx"></div><div id="slits"></div><div id="scan"></div>
-<div id="tasks"></div><div id="prompt"></div><div id="note"><div id="nt"></div><small>[E] close · [2] journal</small></div><div id="hint"></div>
+<div id="tasks"></div><div id="prompt"></div><div id="note"><div id="nt"></div><small>[E] close · [2] journal</small></div><div id="hint"></div><div id="vc"></div>
 <div id="inv"><div class="sl" id="s1"><i>1</i>🔦<span id="c1"></span></div><div class="sl" id="s2"><i>2</i>📄<span id="c2"></span></div><div class="sl" id="s3"><i>3</i>⚡<span id="c3"></span></div><div class="sl" id="s4"><i>4</i>🔋<span id="c4"></span></div></div>
 <div id="hud"><div><div id="obj"></div><div id="sb"><i id="sf"></i></div></div><div id="hd"></div></div>
 <div id="lbar"><b id="lcode">------</b><input id="lk" readonly><button id="b-copy">COPY LINK</button><button id="b-mode">MODE: CLASSIC</button><span id="lp"></span><button id="b-start">▶ START THE NIGHT</button><span id="lw"></span><button id="b-leave" style="opacity:.6;margin-left:auto">LEAVE</button></div>
-<div id="tc"><div id="lz"></div><div id="sz"><div id="base"><div id="knob"></div></div></div><div class="tb" id="t-e">E</div><div class="tb" id="t-run">RUN</div><div class="tb" id="t-cr">CROUCH</div><div class="tb" id="t-fl">LIGHT</div><div class="tb" id="t-roar">ROAR</div><div class="tb" id="t-jump">JUMP</div><div class="ts" id="t-pause">❚❚</div><div class="ts" id="t-fs">⛶</div></div><div id="rot">ROTATE YOUR PHONE<br>↻ LANDSCAPE</div>
+<div id="tc"><div id="lz"></div><div id="sz"><div id="base"><div id="knob"></div></div></div><div class="tb" id="t-e">E</div><div class="tb" id="t-run">RUN</div><div class="tb" id="t-cr">CROUCH</div><div class="tb" id="t-fl">LIGHT</div><div class="tb" id="t-roar">ROAR</div><div class="tb" id="t-jump">JUMP</div><div class="ts" id="t-pause">❚❚</div><div class="ts" id="t-fs">⛶</div><div class="ts" id="t-mic">🎤</div></div><div id="rot">ROTATE YOUR PHONE<br>↻ LANDSCAPE</div>
 <div id="menu">
 <div id="m-main"><div class="eye">ADMISSIONS · ST. MARROW MEMORIAL · EST. 1931</div><h1>ST.&nbsp;MARROW<small>ABANDONED HOSPITAL</small></h1><div class="blood"></div>
 <label>USERNAME</label><input id="nm" maxlength="14" placeholder="username">
 <button class="big" id="b-modes"><i>☰</i><span>GAME MODES<small id="curmode">CLASSIC</small></span></button><button class="big" id="b-solo"><i>▶</i>PLAY SOLO</button><button class="big" id="b-create"><i>＋</i>HOST A LOBBY</button><button class="big" id="b-friends"><i>☺</i>FRIENDS</button>
 <label>JOIN A FRIEND</label><div class="row"><input id="code" placeholder="paste invite link"><button id="b-join">JOIN</button></div>
 <p id="info"></p>
-<div class="keys"><span><b>WASD</b>move</span><span><b>E</b>interact</span><span><b>1-4</b>items</span><span><b>SHIFT</b>run</span><span><b>C</b>crouch</span><span><b>SHIFT+C</b>slide</span><span><b>SPACE</b>jump</span><span><b>🎮</b>controller</span><span><b>F</b>light</span><span><b>R</b>roar</span><span><b>Q</b>/<b>ESC</b>pause</span></div></div>
+<div class="keys"><span><b>WASD</b>move</span><span><b>E</b>interact</span><span><b>1-4</b>items</span><span><b>SHIFT</b>run</span><span><b>C</b>crouch</span><span><b>SHIFT+C</b>slide</span><span><b>CTRL+V</b>voice (hold)</span><span><b>SPACE</b>jump</span><span><b>🎮</b>controller</span><span><b>F</b>light</span><span><b>R</b>roar</span><span><b>Q</b>/<b>ESC</b>pause</span></div></div>
 <div id="m-msg" hidden><h1 id="mt" style="font-size:clamp(30px,7vw,64px)"></h1><h2 id="ms"></h2><button class="big" id="b-again"></button><button class="big" id="b-menu"><i>✕</i>EXIT TO MENU</button></div>
 <div id="m-name" hidden><div class="eye">ADMISSIONS DESK</div><h1 style="font-size:clamp(34px,7vw,70px)">WHO ARE YOU?</h1><div class="blood"></div><label>CHOOSE A USERNAME</label><input id="un" maxlength="14" placeholder="username" autocomplete="off"><button class="big" id="b-un"><i>▶</i>CONTINUE</button><p style="font-size:12px;color:#8fa89a">Saved on this device automatically. Friends find you by it.</p></div>
 <div id="m-modes" hidden><div class="eye">CHOOSE YOUR NIGHT</div><h1 style="font-size:clamp(34px,7vw,70px)">GAME MODES</h1><div class="blood"></div>
@@ -101,6 +102,8 @@ function online(){const mine={},tab={},seen={},subd=new Set();let last=0;const k
   peers(){const n=Date.now();return Object.keys(tab).filter(k=>n-seen[k]<9000).map(k=>({peer:'u_'+k,isMe:false,sameTab:false,presence:tab[k]}))},leave(){return Promise.resolve()}}}
 const ns={async join(name){if(name==='hh-online')return online();try{return await lobby(String(name).replace(/^hh-/,''))}catch(e){localOnly=true;console.warn('Online lobby failed — running offline:',e);return await lobby(String(name).replace(/^hh-/,''),true)}},presence(){return Promise.resolve()},peers(){return[]},leave(){return Promise.resolve()}};
 window.__hhNet={ns,status:()=>localOnly?'OFFLINE':conns.filter(c=>c.connected).length+' relays'};
+window.__hhNet.vsend=(code,o)=>pubAll('stmarrow/v2/v/'+code+'/'+sid,o);
+window.__hhNet.von=(code,cb)=>{const base='stmarrow/v2/v/'+code+'/',h=(tp,b)=>{if(tp.slice(0,base.length)!==base)return;const k=tp.slice(base.length);if(k===sid)return;try{cb(k,JSON.parse(b.toString()))}catch(e){}};handlers.add(h);sub(base+'+');return()=>{handlers.delete(h);unsub(base+'+')}};
 if(false){window.claude={use:async n=>n==='room'?ns:null};
  setInterval(()=>{const k=document.getElementById('lk');if(k&&/^https:\/\/claude\.ai\/artifact\//.test(k.value))k.value=k.value.replace(/^https:\/\/claude\.ai\/artifact\/[^#]*/,location.href.split('#')[0])},300)}
 const box=document.createElement('div');box.style.cssText='position:fixed;left:10px;bottom:6px;z-index:10;font:11px monospace;letter-spacing:1px;color:#9bd;opacity:.75;pointer-events:none;display:none';
@@ -346,7 +349,7 @@ $('b-start').onclick=startHost;
 $('nm').value=myName;
 (async()=>{for(let i=0;i<12&&!(window.claude&&claude.use);i++)await new Promise(r=>setTimeout(r,100));try{if(window.claude&&claude.use)roomNS=await claude.use('room')}catch(e){roomNS=null}if(!roomNS&&window.__hhNet)roomNS=__hhNet.ns;try{if(roomNS)OLr=await roomNS.join('hh-online')}catch(e){OLr=null}const c=parseCode(location.hash);if(c){$('code').value=c;$('info').textContent='Lobby link detected — press JOIN to enter lobby '+c.toUpperCase()+'.'}if(!roomNS)$('info').textContent+=' (Multiplayer needs the signed-in claude.ai view; solo works anywhere.)'})();
 // ---------- input ----------
-addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;keys[e.code]=true;if(e.code=='KeyF'){flOn=!flOn;sel=1}if(e.code=='KeyR')wantQ=true;if(e.code==='Escape'||e.code==='KeyQ'){if(canPause()||paused){if(paused){if(e.code==='KeyQ'||performance.now()-pauseT>250)resume()}else if(e.code==='KeyQ'||performance.now()-pauseT>250)openPause()}}if(e.code=='Digit1')sel=1;if(e.code=='Digit2'){sel=2;if(mode==='play')journal()}if(e.code=='Digit3')sel=3;if(e.code=='Digit4'){sel=4;useBat()}if(e.code=='Enter'&&mode==='lobby'&&$('b-start').style.display!=='none')startHost();if(e.code=='KeyE'){if(noteOpen)closeNote();else want=true}if(e.code==='Space')wantJump=true;if(['Space','ArrowUp','ArrowDown'].includes(e.code))e.preventDefault()});addEventListener('keyup',e=>keys[e.code]=false);
+addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;keys[e.code]=true;if(e.code==='KeyV'&&e.ctrlKey){e.preventDefault();if(!e.repeat){vcHeld.kb=true;voiceSync()}}if(e.code=='KeyF'){flOn=!flOn;sel=1}if(e.code=='KeyR')wantQ=true;if(e.code==='Escape'||e.code==='KeyQ'){if(canPause()||paused){if(paused){if(e.code==='KeyQ'||performance.now()-pauseT>250)resume()}else if(e.code==='KeyQ'||performance.now()-pauseT>250)openPause()}}if(e.code=='Digit1')sel=1;if(e.code=='Digit2'){sel=2;if(mode==='play')journal()}if(e.code=='Digit3')sel=3;if(e.code=='Digit4'){sel=4;useBat()}if(e.code=='Enter'&&mode==='lobby'&&$('b-start').style.display!=='none')startHost();if(e.code=='KeyE'){if(noteOpen)closeNote();else want=true}if(e.code==='Space')wantJump=true;if(['Space','ArrowUp','ArrowDown'].includes(e.code))e.preventDefault()});addEventListener('keyup',e=>{keys[e.code]=false;if((e.code==='KeyV'||e.code.startsWith('Control'))&&vcHeld.kb){vcHeld.kb=false;voiceSync()}});
 addEventListener('mousedown',()=>drag=true);addEventListener('mouseup',()=>drag=false);$('c').onclick=()=>{if(!TOUCH&&((mode==='play'&&!dead)||mode==='lobby')&&!locked)try{$('c').requestPointerLock()}catch(e){fallback=true}};
 document.addEventListener('pointerlockerror',()=>fallback=true);document.addEventListener('pointerlockchange',()=>{locked=document.pointerLockElement===$('c');if(locked)fallback=false;if(!locked&&canPause()&&!paused)openPause()});
 const canPause=()=>mode==='play'&&!won&&!gdone&&!gameOverShown&&(!dead||deadT>2.8);
@@ -369,7 +372,7 @@ addEventListener('touchstart',()=>{if(!TOUCH){TOUCH=true;document.body.classList
  const eS=e=>{for(const t of e.changedTouches)if(t.identifier===sid){sid=null;bs.style.display='none';setK(0,0)}};sz.addEventListener('touchend',eS);sz.addEventListener('touchcancel',eS);
  const bt=(id,down,up)=>{const el=$(id);el.addEventListener('touchstart',e=>{e.preventDefault();el.classList.add('on');down&&down()},NP);const u=e=>{e.preventDefault();el.classList.remove('on');up&&up()};el.addEventListener('touchend',u,NP);el.addEventListener('touchcancel',u,NP)};
  bt('t-e',()=>{if(noteOpen)closeNote();else want=true});bt('t-run',()=>keys.ShiftLeft=true,()=>keys.ShiftLeft=false);bt('t-cr',()=>{keys.KeyC=!keys.KeyC},()=>$('t-cr').classList.toggle('on',!!keys.KeyC));
- bt('t-fl',()=>{flOn=!flOn;sel=1});bt('t-roar',()=>wantQ=true);bt('t-jump',()=>wantJump=true);bt('t-pause',()=>{if(paused)resume();else openPause()});bt('t-fs',()=>{const d=document.documentElement;try{(d.requestFullscreen||d.webkitRequestFullscreen).call(d)}catch(e){}});
+ bt('t-fl',()=>{flOn=!flOn;sel=1});bt('t-mic',()=>{vcHeld.t=true;voiceSync()},()=>{vcHeld.t=false;voiceSync()});bt('t-roar',()=>wantQ=true);bt('t-jump',()=>wantJump=true);bt('t-pause',()=>{if(paused)resume();else openPause()});bt('t-fs',()=>{const d=document.documentElement;try{(d.requestFullscreen||d.webkitRequestFullscreen).call(d)}catch(e){}});
  ['s1','s2','s3','s4'].forEach((k,i)=>$(k).addEventListener('touchstart',e=>{e.preventDefault();slot(i+1)},NP));$('note').addEventListener('click',()=>closeNote())}
 // ---------- profile, friends, game modes ----------
 const MODES={classic:'CLASSIC',hide:'HIDE & SEEK',race:'HORROR RACE'};let friends=[],OLr=null;
@@ -392,19 +395,36 @@ function renderFriends(){const on=OLr?OLr.peers().filter(p=>!p.isMe&&p.presence.
  $('fnote').textContent=OLr?'':'Online status needs the signed-in claude.ai view.'}
 setInterval(()=>{if(OLr)try{OLr.presence({u:myName,lb:(LB.r&&mode!=='main')?LB.code:null,gm:GM}).catch(()=>{})}catch(e){}if(!$('m-friends').hidden)renderFriends()},1500);
 // ---------- gamepad ----------
-let GPA=false;const gpP={},gpK={};
+let GPA=false,gpOff=false;const gpP={},gpK={};
 const gpSet=(c,v)=>{if(gpK[c]!==v){gpK[c]=v;keys[c]=v}};
-addEventListener('gamepadconnected',()=>{GPA=true;$('info').textContent='Controller connected — L-stick move · R-stick look · A jump · B crouch (hold) · X interact · Y light · LT/L3 run · RT roar · LB/RB items · R3 use item · Start pause/start'});
-function pollPad(dt){const pads=navigator.getGamepads?navigator.getGamepads():[];let g=null;for(const q of pads)if(q&&q.connected){g=q;break}if(!g)return;
+addEventListener('gamepadconnected',()=>{GPA=true;$('info').textContent='Controller connected — L-stick move · R-stick look · A jump · B crouch (hold) · X interact · Y light · LT/L3 run · RT roar · LB/RB items · R3 use item · Start pause/start · hold D-pad up = voice'});
+function pollPad(dt){if(gpOff)return;let pads=[];try{pads=navigator.getGamepads?navigator.getGamepads():[]}catch(e){gpOff=true;return}let g=null;for(const q of pads)if(q&&q.connected){g=q;break}if(!g)return;
  const ax=i=>{const v=g.axes[i]||0;return Math.abs(v)<.18?0:v},b=i=>!!(g.buttons[i]&&g.buttons[i].pressed),rise=i=>{const n=b(i),r=n&&!gpP[i];gpP[i]=n;return r};
  const lx=ax(0),ly=ax(1),rx=ax(2),ry=ax(3);if(lx||ly||rx||ry||g.buttons.some(q=>q.pressed))GPA=true;
  if($('menu').style.display==='flex'){const A=rise(0),B=rise(1);if(!$('m-pause').hidden){if(A)resume();if(B)toMain()}else if(!$('m-msg').hidden){if(A)$('b-again').click();if(B)$('b-menu').click()}else if(!$('m-main').hidden){if(A)$('b-solo').click()}return}
  gpSet('KeyW',ly<-.3);gpSet('KeyS',ly>.3);gpSet('KeyA',lx<-.3);gpSet('KeyD',lx>.3);if(rx||ry)lookBy(rx*dt*1000,ry*dt*700);
- gpSet('KeyC',b(1));gpSet('ShiftLeft',b(6)||b(10));
+ {const tk=b(12);if(tk!==!!vcHeld.pad){vcHeld.pad=tk;voiceSync()}}gpSet('KeyC',b(1));gpSet('ShiftLeft',b(6)||b(10));
  if(rise(0))wantJump=true;if(rise(2)){if(noteOpen)closeNote();else want=true}if(rise(3)){flOn=!flOn;sel=1}if(rise(7))wantQ=true;
  if(rise(5)||rise(15))sel=sel%4+1;if(rise(4)||rise(14))sel=(sel+2)%4+1;if(rise(11)){if(sel===2)journal();else if(sel===4)useBat()}
  if(rise(9)){if(mode==='lobby'&&LB.r&&$('b-start').style.display!=='none')startHost();else if(mode==='play'){if(paused)resume();else openPause()}}
  if(rise(8)&&mode==='play'){if(paused)resume();else openPause()}}
+// ---------- voice chat (hold to talk): Ctrl+V · mic button on phones · D-pad up on a controller ----------
+const vcHeld={};let vcStream=null,vcNode=null,vcSrc=null,vcOn=false,vcBuf=[],vcQ=0,vOff=null,vCode='',vNote='',vNoteT=0;const vSpeak={},vq={},vNext={};
+const voiceOK=()=>!!(window.__hhNet&&roomNS===window.__hhNet.ns&&LB.r&&LB.code&&LB.code!=='solo'),vcMsg=t=>{vNote=t;vNoteT=Date.now()},
+ mu=x=>{x=Math.max(-1,Math.min(1,x*1.4));return Math.round(Math.sign(x)*Math.log(1+255*Math.abs(x))/Math.log(256)*127)};
+function voiceSync(){if(vcHeld.kb||vcHeld.t||vcHeld.pad)voiceOn();else voiceOff()}
+async function voiceOn(){if(vcOn)return;if(!voiceOK()){vcMsg('VOICE CHAT ONLY WORKS IN ONLINE LOBBIES');return}initA();if(!AC)return;
+ try{if(!vcStream)vcStream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true}})}catch(e){vcMsg('MICROPHONE BLOCKED \u2014 ALLOW IT IN THE BROWSER');return}
+ if(!(vcHeld.kb||vcHeld.t||vcHeld.pad)||vcOn)return;
+ const src=AC.createMediaStreamSource(vcStream),node=AC.createScriptProcessor(2048,1,1),ratio=AC.sampleRate/8000,z=AC.createGain();let acc=0,cnt=0,sum=0;
+ node.onaudioprocess=e=>{const d=e.inputBuffer.getChannelData(0);for(let i=0;i<d.length;i++){sum+=d[i];cnt++;acc++;if(acc>=ratio){acc-=ratio;vcBuf.push(mu(sum/cnt));sum=0;cnt=0}}if(vcBuf.length>=1600)flushV()};
+ z.gain.value=0;src.connect(node);node.connect(z);z.connect(AC.destination);vcSrc=src;vcNode=node;vcOn=true}
+function voiceOff(){if(!vcOn)return;vcOn=false;flushV();try{vcSrc.disconnect();vcNode.disconnect()}catch(e){}vcNode.onaudioprocess=null}
+function flushV(){if(!vcBuf.length||!voiceOK())return;const u=new Uint8Array(vcBuf.length);for(let i=0;i<u.length;i++)u[i]=vcBuf[i]+128;vcBuf=[];let s='';for(let i=0;i<u.length;i+=8192)s+=String.fromCharCode.apply(null,u.subarray(i,i+8192));__hhNet.vsend(LB.code,{q:++vcQ,d:btoa(s),n:myName})}
+function onVoice(k,m){if(!m||!m.d||!AC||(vq[k]!==undefined&&m.q<=vq[k]))return;vq[k]=m.q;const s=atob(m.d),f=new Float32Array(s.length);for(let i=0;i<s.length;i++){const y=(s.charCodeAt(i)-128)/127;f[i]=Math.sign(y)*(Math.pow(256,Math.abs(y))-1)/255}
+ const b=AC.createBuffer(1,f.length,8000);b.copyToChannel(f,0);const src=AC.createBufferSource(),g=AC.createGain();g.gain.value=1.6;src.buffer=b;src.connect(g);g.connect(mg);const t=Math.max(AC.currentTime+.12,vNext[k]||0);src.start(t);vNext[k]=t+b.duration;vSpeak[k]={t:Date.now(),n:String(m.n||'?').slice(0,14)}}
+setInterval(()=>{const on=voiceOK();if(on&&LB.code!==vCode){vOff&&vOff();vCode=LB.code;vOff=__hhNet.von(LB.code,onVoice)}else if(!on&&vOff){vOff();vOff=null;vCode=''}
+ const sp=Object.values(vSpeak).filter(s=>Date.now()-s.t<700).map(s=>s.n);let t=(vcOn?'\ud83c\udfa4 TALKING  ':'')+(sp.length?'\ud83d\udd0a '+sp.join(', '):'');if(!t&&vNote&&Date.now()-vNoteT<3000)t=vNote;$('vc').textContent=t},250);
 const fmt=s=>{s=Math.max(0,Math.ceil(s));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
 function hideHTML(m){const h=gt<30;return '<b>HIDE &amp; SEEK</b><div>'+(h?(m?'You are the SEEKER \u2014 frozen for '+Math.ceil(30-gt)+'s':'HIDE! The seeker is released in '+Math.ceil(30-gt)+'s'):(m?'FIND THEM ALL \u2014 '+fmt(210-gt)+' left':'SURVIVE \u2014 '+fmt(210-gt)+' left'))+'</div><div style="opacity:.6;margin-top:4px">'+(m?'[E] check a locker or bed \u00b7 [R] roar':'Lockers &amp; beds: [E] to hide')+'</div>'}
 
@@ -453,7 +473,7 @@ function play(dt){gt+=dt;const all=peersIn(),me=all.find(p=>p.isMe&&p.sameTab),o
  if(MP&&me&&me.peer!==MP&&!others.find(p=>p.peer===MP))MP=null;
  const mon=!!(MP&&me&&me.peer===MP),hostId=me?hostOf(all.filter(p=>p.presence.st==='play'||p.isMe)):null,isHost=!me||hostId===me.peer,ctl=MP?others.find(p=>p.peer===MP):others.find(p=>p.peer===hostId),hum=others.filter(p=>p.peer!==MP);
  if(GM!=='race')others.forEach(p=>MK|=(p.presence.g|0));
- const crouch=!mon&&(keys.KeyC||keys.ControlLeft),dM0=Math.hypot(E.pos.x-P.x,E.pos.z-P.z);let near=null,nd=1e9;
+ const crouch=!mon&&keys.KeyC,dM0=Math.hypot(E.pos.x-P.x,E.pos.z-P.z);let near=null,nd=1e9;
  if(!dead&&!won&&!noteOpen&&!mon&&!hid)IT.forEach(it=>{if(it.done||(GM==='hide'&&'nfg'.includes(it.t)))return;const d=Math.hypot(it.x-P.x,it.z-P.z);if(d<it.r&&d<nd&&!(it.t==='f'&&MK>>(it.i+1)&1)&&!(it.t==='g'&&MK&16)){nd=d;near=it}});
  const fc=bits(MK>>1);
  if(want){want=false;if(mon){ckn++;ckp=[+P.x.toFixed(1),+P.z.toFixed(1),ckn];burst(.4,.5,300);shake=.3}else if(hid)leaveHide();else if(near){
